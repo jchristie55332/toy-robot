@@ -1,0 +1,8 @@
+version: '3'
+services:
+  toy-robot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./node_modules:/opt/app/node_modules
