@@ -37,26 +37,28 @@ export class ToyRobot {
 
   actOnCommand(
     command: Command,
-  ): boolean {
+  ): string {
+    let commandOutput
+
     switch(command.commandType) {
       case(PLACE_PREFIX): 
-        this.place(command)
+        commandOutput = this.place(command)
         break;
       case(MOVE_PREFIX): 
-        this.move()
+      commandOutput = this.move()
         break;
       case(LEFT_PREFIX): 
-        this.left()
+        commandOutput = this.left()
         break;
       case(RIGHT_PREFIX): 
-        this.right()
+        commandOutput = this.right()
         break;
       case(REPORT_PREFIX): 
-        this.report()
+        commandOutput = this.report()
         break;
     }
 
-    return true
+    return commandOutput
   }
 
   place(command: Command): string {

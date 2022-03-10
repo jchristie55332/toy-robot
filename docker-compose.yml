@@ -4,5 +4,3 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./node_modules:/opt/app/node_modules

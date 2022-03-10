@@ -1,5 +1,5 @@
 import { ToyRobot, CoordinateInvalidError, PlaceNotDefinedError, RobotGonnaFallError } from '../src-ts/toyRobot'
-import { Command, PLACE_PREFIX } from '../src-ts/command'
+import { Command, PLACE_PREFIX, MOVE_PREFIX, REPORT_PREFIX, LEFT_PREFIX, RIGHT_PREFIX} from '../src-ts/command'
 
 describe('ToyRobot class', () => {
   describe('place method', () => {
@@ -218,6 +218,36 @@ describe('ToyRobot class', () => {
         it('and a report of position is requested', () => {
           expect(toyRobot.report()).toBe('Reporting.....0,0,NORTH')
         })
+      })
+    })
+  })
+
+  describe('actOnCommand method', () => {
+    describe('when acting on the first example commands', () => {
+      it('reponds as expected', () => {
+        const toyRobot = new ToyRobot
+        const firstCommand = new Command(PLACE_PREFIX, '0,0,NORTH')
+        const secondCommand = new Command(MOVE_PREFIX, '')
+        const thirdCommand = new Command(REPORT_PREFIX, '')
+        const forthCommand = new Command(RIGHT_PREFIX, '')
+
+        expect(toyRobot.actOnCommand(firstCommand)).toBe('Place successful')
+        expect(toyRobot.actOnCommand(secondCommand)).toBe('Move successful')
+        expect(toyRobot.actOnCommand(thirdCommand)).toBe('Reporting.....0,1,NORTH')
+        expect(toyRobot.actOnCommand(forthCommand)).toBe('Right successful')
+      })
+    })
+      
+    describe('when acting on the second example commands', () => {
+      it('reponds as expected', () => {
+        const toyRobot = new ToyRobot
+        const firstCommand = new Command(PLACE_PREFIX, '0,0,NORTH')
+        const secondCommand = new Command(LEFT_PREFIX, '')
+        const thirdCommand = new Command(REPORT_PREFIX, '')
+
+        expect(toyRobot.actOnCommand(firstCommand)).toBe('Place successful')
+        expect(toyRobot.actOnCommand(secondCommand)).toBe('Left successful')
+        expect(toyRobot.actOnCommand(thirdCommand)).toBe('Reporting.....0,0,WEST')
       })
     })
   })
