@@ -1,0 +1,39 @@
+# Round 1
+PLACE 0,0,NORTH
+Place successful
+MOVE
+Move successful
+MOVE
+Move successful
+MOVE
+Move successful
+MOVE
+Move successful
+MOVE
+Move successful
+MOVE
+The Robot will fall with this move.  Ignored!
+REPORT
+Reporting.....0,5,NORTH
+
+# Round 2
+PLACE 0,0,SOUTH
+Place successful
+MOVE
+The Robot will fall with this move.  Ignored!
+REPORT
+Reporting.....0,0,SOUTH
+
+# Round 3
+PLACE 4,4,EAST
+Place successful
+MOVE
+Move successful
+REPORT
+Reporting.....5,4,EAST
+PLACE 1,1,NORTH
+Place successful
+MOVE
+Move successful
+REPORT
+Reporting.....1,2,NORTH
